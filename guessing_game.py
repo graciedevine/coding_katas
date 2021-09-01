@@ -1,47 +1,24 @@
-"""Practice exercise taken from w3resource.com.
-Write a Python program to guess a number between 1-9.
-User is prompted to enter a guess. If the user guesses wrong then the prompt appears again until the guess is correct, on successful guess, user will get a "Well guessed!" message, and the program will exit."""
-
-#My code before looking for help. I attempted to put the whole thing in a while loop, but the break statement said it was outside bounds. When removing the while loop, "if guess != secret_number" only looped twice
-#before quitting.
-
-#import random
-
-#guess = int(input("I'm thinking of a number between 1 to 9...\n"))
-
-#secret_number = random.randint(1,9)
-
-#while True:
-
-#if guess != secret_number:
-    #print (int(input("Sorry, guess again.\n")))
-
-#if guess == secret_number:
-    #print ("Congratulations.")
-
-
-#Code I found in a video tutorial:
-
 import random
 
-number = random.randrange (1,9)
 
-guess =  int(input("Guess a number between 1-9.\n"))
+def play_game():
+    guesses = 0
+    number = random.randint(1, 10)
 
-while guess != number:
-    if guess < number:
-        print ("Guess higher!")
-        guess =  int(input("Guess a number between 1-9.\n"))
+    while guesses < 3:
+        guess = int(input("I'm thinking of a number between 1 and 10.\n"))
+        guesses = guesses + 1
 
-    else:
-        print ("Guess lower!")
-        guess =  int(input("Guess a number between 1-9.\n"))
+        if guess < number:
+            print("Guess higher!")
+        elif guess > number:
+            print("Guess lower!")
+        else:
+            print("That's right! You got it!")
+            break
 
-print("Yes, that's it!")
+    if guess != number:
+        print("Sorry, the number I was thinking of was " + str(number))
 
 
-
-
-
-
-        
+play_game()

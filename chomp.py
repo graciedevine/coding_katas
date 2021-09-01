@@ -6,7 +6,9 @@ More info at: https://en.wikipedia.org/wiki/Chomp
 This and other games are available at https://nostarch.com/XX
 Tags: short, game, puzzle, two-player"""
 __version__ = 0
-import random, sys
+import random
+import sys
+
 
 print('''Chomp, by Al Sweigart al@inventwithpython.com
 Inspired by a Frederik Schuh and David Gale puzzle.
@@ -83,8 +85,8 @@ while True:  # Main game loop.
         break  # Break out of the main game loop.
 
     # Eat the selected piece and all pieces below and to the right of it:
-    for x in 'ABCDEFGHI'['ABCDEFGHI'.index(piecex) :]:
-        for y in '123456789'[int(piecey) - 1 :]:
+    for x in 'ABCDEFGHI'['ABCDEFGHI'.index(piecex):]:
+        for y in '123456789'[int(piecey) - 1:]:
             uneatenBar[(x, y)] = False
 
     # Switch turns to the other player:
