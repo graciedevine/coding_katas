@@ -1,11 +1,15 @@
-# write a script that finds and prints all prime numbers up to 100
+import math
 
 
 def print_primes(n):
     for x in range(1, n + 1):
-        for y in range(1, x):
+        prime = True
+        for y in range(2, int(math.sqrt(n)) + 1):
             if x % y == 0:
+                prime = False
+            if prime:
                 print(x)
+                break
 
 
-print_primes(21)
+print_primes(15)
